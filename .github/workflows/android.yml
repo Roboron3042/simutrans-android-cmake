@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
-        path: 'gh-clone/simutrans'
+        path: 'gh-clone/simutrans-android-cmake'
 
     - name: Install dependencies
       run: |
