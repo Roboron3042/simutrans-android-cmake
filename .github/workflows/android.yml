@@ -23,6 +23,7 @@ jobs:
         echo "ANDROID_SDK_HOME=/opt/android-sdk-linux" >> $GITHUB_ENV
         echo "ANDROID_SDK_ROOT=/opt/android-sdk-linux" >> $GITHUB_ENV
         echo "ANDROID_SDK=/opt/android-sdk-linux" >> $GITHUB_ENV
+        echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk" >> $GITHUB_ENV
 
     - name: Create working directory for next steps
       run: |
@@ -76,8 +77,6 @@ jobs:
         STORE_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_ALIAS }}
         STORE_PASS: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASS }}
       run: |
-        pwd
-        ls
         ./prepareAndBuild.sh
 
     - name: Update binaries of Nightly Release apk
