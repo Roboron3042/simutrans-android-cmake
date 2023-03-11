@@ -74,11 +74,6 @@ jobs:
         mkdir /home/runner/.android/
         keytool -genkey -v -keystore /home/runner/.android/debug.keystore -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 -keypass android -storepass android -dname "cn=example.com,ou=exampleou,dc=example,dc=com"
 
-    - name: Setup licenses for Gradle
-      working-directory: /android-sdl
-      run: |
-        ln -s $ANDROID_HOME/licenses project/licenses
-
     - name: Build Simutrans
       env:
         STORE_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_ALIAS }}
