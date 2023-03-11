@@ -78,8 +78,9 @@ jobs:
       env:
         STORE_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_ALIAS }}
         STORE_PASS: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASS }}
-      working-directory: $GITHUB_WORKSPACE/gh-clone/simutrans-android-cmake
       run: |
+        pwd
+        ls
         ./prepareAndBuild.sh
 
     - name: Update binaries of Nightly Release apk
