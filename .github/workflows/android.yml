@@ -80,12 +80,12 @@ jobs:
         ./prepareAndBuild.sh
 
     - name: Update binaries of Nightly Release apk
-      uses: svenstaro/upload-release-action@v1-release
+      uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: app/build/outputs/apk/debug/app-debug.apk
         asset_name: simuandroid-debug.apk
-        tag: ${{ github.ref }}
+        tag: Nightly
         overwrite: true
 
 
