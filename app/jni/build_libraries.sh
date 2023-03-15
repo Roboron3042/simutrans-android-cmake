@@ -41,7 +41,7 @@ function build_for_android {
         -DCMAKE_ARCHIVE_OUTPUT_DIRECTORY=$OUTPUT_DIR \
         -DCMAKE_INSTALL_LIBDIR=$OUTPUT_DIR \
         -DANDROID_PLATFORM=${ANDROID_SYSTEM_VERSION} \
-        -DCMAKE_ANDROID_STL=c++_shared \
+        -DCMAKE_ANDROID_STL=c++_static \
         -DCMAKE_ANDROID_NDK=$ANDROID_NDK \
         -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
         -DANDROID_TOOLCHAIN=clang \
@@ -73,6 +73,7 @@ function build_library {
 }
 
 TOP_DIR=$(pwd)
+build_library $TOP_DIR/zlib $TOP_DIR/zlib
 build_library $TOP_DIR/bzip2 $TOP_DIR/bzip2 "-DENABLE_LIB_ONLY=ON"
 build_library $TOP_DIR/libpng $TOP_DIR/libpng
 cp $TOP_DIR/libpng/scripts/pnglibconf.h.prebuilt $TOP_DIR/libpng/pnglibconf.h
